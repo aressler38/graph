@@ -1,0 +1,13 @@
+{
+  "name": "graph",
+  "description": "A JavaScript graphing tool",
+  "author": "Alexander Ressler",
+	"scripts": {
+		"install": "if [ ! -d ./dist ]; then mkdir dist; fi",
+		"build": "./node_modules/browserify/bin/cmd.js src/js/Graph.js -s Graph -o dist/Graph.js",
+		"watch": "while inotifywait -e modify -r ./src/; do npm run-script build; done"
+	},
+  "devDependencies": {
+    "browserify": "^13.0.1"
+  }
+}
